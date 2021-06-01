@@ -1,0 +1,4 @@
+config.py
+dialogflow_cred.json
+/venv
+/.idea

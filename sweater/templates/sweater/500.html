@@ -1,0 +1,23 @@
+{% extends 'sweater/base.html' %}
+
+
+{% block title %}404{% endblock %}
+{% block body %}
+    <body class="body-bg">
+    <div class="h-25"></div>
+    <div class="container w-50">
+        <div class="card w-50 h-50 m-auto">
+            <div class="card-body">
+                <div class="p-md-2">
+                    <h1 class="display-1 text-center mb-1"> 500 </h1>
+                    <h3 class="text-center mb-3"> Возникла внутренняя ошибка </h3>
+                    <p> {{ e }} </p>
+                    <div class="row justify-content-center">
+                        <a href="{{ url_for('main') }}" class="mb-2 btn btn-outline-dark px-3">Домой</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

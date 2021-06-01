@@ -1,0 +1,48 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Пользователи
+{% endblock %}
+
+{% block header %}
+    Пользователи
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <table id="usersTable" class="table table-borderless table-hover table-sm">
+            <thead>
+            <tr>
+                <th class="text-center">Профиль</th>
+                <th class="text-center">Имя</th>
+                <th class="text-center">Telegram аккаунт</th>
+                <th class="text-center">Электронная почта</th>
+                <th class="text-center">Номер телефона</th>
+                <th class="text-center">Гражданство</th>
+                <th class="text-center">Город проживания</th>
+                <th class="text-center">Время регистрации</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for u in users %}
+                <tr>
+                    <td class="align-middle d-flex justify-content-center">
+                        <img class="avatar img-fluid" src="api/avatar?uid={{ u['user_id'] }}" alt="avatar">
+                    </td>
+                    <td class="align-middle text-center">{{ u['real_name'] }}</td>
+                    <td class="align-middle text-center"><a
+                            {% if u['username'] %}href="https://t.me/{{ u['username'] }}"{% endif %}>{{ u['username'] }}</a>
+                    </td>
+                    <td class="align-middle text-center"><a
+                            href="mailto:{{ u['email_address'] }}">{{ u['email_address'] }}</a></td>
+                    <td class="align-middle text-center">{{ u['phone_number'] }}</td>
+                    <td class="align-middle text-center">{{ u['nation'] }}</td>
+                    <td class="align-middle text-center">{{ u['geo'] }}</td>
+                    <td class="align-middle text-center">{{ u['register_time'].strftime('%Y-%m-%d') }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <script src="{{ url_for('static', filename='js/users.js') }}"></script>
+{% endblock %}

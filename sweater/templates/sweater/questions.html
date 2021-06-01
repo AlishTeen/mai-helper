@@ -1,0 +1,76 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Вопросы
+{% endblock %}
+
+{% block header %}
+    Вопросы пользователей
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        {% for i in range(question|length//3 + 1) %}
+            <div class="row">
+                {% for i in range(3) %}
+                    {% if question | count > 0 %}
+                        {% set el = question.pop() %}
+                        <div class="card q-card col my-2 mx-2" draggable="true">
+                            <div class="card-body">
+                                <div class="form-check q-check-div">
+                                    <input class="q-check form-check-input" type="checkbox" value="check"
+                                           aria-label="question">
+                                </div>
+                                <h5 class="card-title">{{ el.name }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">задал вопрос:</h6>
+                                <p class="card-text h-25 form-text text-truncate w-auto" id="question">{{ el.text }}</p>
+                                <div class="row">
+                                    <button class="btn btn-link" data-toggle="modal" data-target="#Modal"
+                                            data-name="{{ el.name }}" data-question="{{ el.text }}"
+                                            data-date="{{ el.datetime.strftime('%X') }}" data-qid="{{ el['_id'] }}"
+                                            data-uid="{{ el['user_id'] }}">
+                                        Ответить
+                                    </button>
+                                    <h6 class="text-muted q-check-div col">{{ el.datetime.strftime('%Y-%m-%d') }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </main>
+
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Новое сообщение</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="response" action="/api/submit/message" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <p class="card-date mb-2 text-muted">Дата отправки:</p>
+                            <label for="q-text" class="card-subtitle mb-2 text-muted">Текст вопроса:</label>
+                            <textarea name="q-text" id="q-text" form="response" class="form-control" required readonly></textarea>
+                            <label for="text" class="card-subtitle mb-2 text-muted">Текст ответа:</label>
+                            <textarea name="text" id="text" form="response" class="form-control" required></textarea>
+                            <input type="hidden" name="qid" id="qid" value="zero">
+                            <input type="hidden" name="uid" id="uid" value="zero">
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/modal-questions.js') }}"></script>
+{% endblock %}
+

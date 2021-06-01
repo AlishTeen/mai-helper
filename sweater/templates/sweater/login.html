@@ -1,0 +1,36 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block body %}
+    <body class="body-bg">
+    <div class="container h-25"></div>
+    <div class="container w-50">
+        <div class="card w-50 h-50 m-auto">
+            <div class="card-body">
+                <div class="p-8 p-md-4">
+                    <h3 class="text-center mb-4">Вход</h3>
+                    <form action="login" class="login-form" method="post">
+                        <div class="form-group">
+                            <input type="text" name="login_" id="login_" class="form-control rounded-left"
+                                   placeholder="Логин" required>
+                        </div>
+                        <div class="form-group d-flex">
+                            <input type="password" name="pass_" id="pass_" class="form-control rounded-left"
+                                   placeholder="Пароль" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary rounded submit px-3">Войти
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+

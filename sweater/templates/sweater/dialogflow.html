@@ -1,0 +1,70 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Консоль Dialogflow
+{% endblock %}
+
+{% block header %}
+    Консоль Dialogflow
+{% endblock %}
+{% block main %}
+    <main class="container ">
+
+        <div class="container">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  border-bottom ">
+                <h3 class="text-primary mb-3">Интенты</h3>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Создать
+                        интент
+                    </button>
+                </div>
+            </div>
+            {% for i in range(5) %}
+                <div class="card my-2">
+                    <div class="row ">
+                        <div class="col">
+                            <p class="text mx-2 my-3">Интент {{ i }}</p>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <i class="far fa-edit fa-2x mx-2 my-2 count" type="button"></i>
+                            <i class="far fa-trash-alt fa-2x  mx-4 my-2 count "></i>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Новое сообщение</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="response" action="/api/submit" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <p class="card-date mb-2 text-muted">Дата отправки:</p>
+                                    <label for="q-text" class="card-subtitle mb-2 text-muted">Текст вопроса:</label>
+                                    <textarea name="q-text" id="q-text" form="response" class="form-control" required
+                                              readonly></textarea>
+                                    <label for="text" class="card-subtitle mb-2 text-muted">Текст ответа:</label>
+                                    <textarea name="text" id="text" form="response" class="form-control"
+                                              required></textarea>
+                                    <input type="hidden" name="qid" id="qid" value="zero">
+                                    <input type="hidden" name="uid" id="uid" value="zero">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                <button type="submit" class="btn btn-primary">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+
+
+{% endblock %}

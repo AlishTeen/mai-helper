@@ -1,0 +1,79 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block header %}
+    Главная
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <div class="row py-4">
+            <div class="col mb-2">
+                <div class="card card-info h-100" draggable="true">
+                    <div class="card-body media fade-in">
+                        <div class="media-body">
+                            <h2 class="count">{{ users_count['all'] }}</h2>
+                            <p class="text-muted">Количество пользователей</p>
+                        </div>
+                        <i class="fas fa-user-friends fa-3x align-self-center ml-4"></i>
+                    </div>
+                    <div class="card-body hidden">
+                        <p class="h5 text-primary">Сегодня: <strong>{{ users_count['today'] }}</strong></p>
+                        <p class="h5 text-primary">7 дней: <strong>{{ users_count['last_7'] }}</strong></p>
+                        <p class="h5 text-primary">Этот месяц: <strong>{{ users_count['this_month'] }}</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="card card-info h-100" draggable="true">
+                    <div class="card-body media fade-in">
+                        <div class="media-body">
+                            <h2 class="count">{{ questions_count['all'] }}</h2>
+                            <p class="text-muted">Количество вопросов к ПК</p>
+                        </div>
+                        <i class="fas fa-question fa-3x align-self-center ml-4"></i>
+                    </div>
+                    <div class="card-body hidden">
+                        <p class="h5 text-primary">Сегодня: <strong>{{ questions_count['today'] }}</strong></p>
+                        <p class="h5 text-primary">7 дней: <strong>{{ questions_count['last_7'] }}</strong></p>
+                        <p class="h5 text-primary">Этот месяц: <strong>{{ questions_count['this_month'] }}</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="card card-info h-100" draggable="true">
+                    <div class="card-body media">
+                        <div class="media-body">
+                            <h2 class="count">{{ dflow_count['all'] }}</h2>
+                            <p class="text-muted">Количество обращений</p>
+                        </div>
+                        <i class="fas fa-comment fa-3x align-self-center ml-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col w-50 h-50">
+                <div class="card" draggable="true">
+                    <div class="card-body">
+                        <a id="chart-refresh1" class="btn btn-info">Обновить</a>
+                        <canvas class="canvas" id="chart1"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col w-50 h-25">
+                <div class="card" draggable="true">
+                    <div class="card-body">
+                        <a id="chart-refresh2" class="btn btn-info">Обновить</a>
+                        <canvas class="canvas" width="120px" height="120px" id="chart2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/diagram-main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

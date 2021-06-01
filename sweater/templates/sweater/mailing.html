@@ -1,0 +1,50 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Рассылка
+{% endblock %}
+
+{% block header %}
+    Рассылка сообщений
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form id="mailing" action="/api/submit/mailing" method="POST">
+                    <label class="h3" for="m-text">Введите текст сообщения</label>
+                    <textarea class="form-control" name="m-text" form="mailing" id="m-text" cols="15" rows="6"
+                              required></textarea>
+                    <button type="submit" class="btn btn-primary mt-4">Отправить сообщение</button>
+                </form>
+            </div>
+            <div class="col-sm">
+                <h3 class="h3">Загрузите файлы
+                    <small class="h5 text-muted">(до 16 МБ)</small>
+                </h3>
+                <div id="dnd-zone" class="dm-uploader">
+                    <div>
+                        <h5 class="h5">Перетащите файлы сюда</h5>
+                        <p class="text-muted">или</p>
+                        <div class="btn btn-primary">
+                            <span>Выберите файл</span>
+                            <input type="file" title='Выбрать файл'/>
+                        </div>
+                    </div>
+                </div>
+                <div id="files" class="row">
+                    <template id="fileTemplate">
+                        <div class="card col mx-1 my-1 file">
+                            <h5 class="text-truncate">readme.md</h5>
+                            <p class="w-auto">0%</p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </main>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dm-uploader.min.css') }}">
+    <script src="{{ url_for('static', filename='js/dm-uploader.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/uploader.js') }}"></script>
+{% endblock %}

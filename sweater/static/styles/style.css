@@ -1,0 +1,143 @@
+.body-bg {
+    height: 100vh;
+    background: url('../images/bg.jpg') no-repeat center;
+    background-size: cover;
+    backdrop-filter: blur(20px);
+    align-content: center;
+    justify-content: center;
+}
+
+.non-visible {
+    opacity: 0;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.q-check-div {
+    text-align: right;
+    align-content: end;
+    margin: auto;
+}
+
+.q-check {
+    transform: scale(1.5);
+}
+
+.q-card {
+    transform: unset;
+    transition: transform 0.5s;
+}
+
+.q-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    background-color: #f4f4f6 !important;
+    transform: scale(1.05);
+    z-index: 2;
+    transition: transform 0.5s
+}
+
+.logo {
+    background-image: url('../images/mai-web.svg');
+    background-size: cover;
+    height: 3rem;
+    width: 3rem;
+}
+
+.count {
+    color: cornflowerblue !important;
+}
+
+.fas {
+    color: cornflowerblue !important;
+}
+
+.current {
+    background: azure !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.fade-in {
+    animation: fade-in 0.8s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fade-out 0.8s;
+}
+
+.card-info {
+    transform: unset;
+    transition: transform 1s;
+}
+
+.card-info:hover {
+    z-index: 2;
+    transform: scale(1.2);
+    transition: transform 1s;
+}
+
+.card-info-pointer {
+    cursor: pointer;
+}
+
+.toast-div {
+    z-index: 5;
+    right: 0;
+    bottom: 0;
+}
+
+.bg-img {
+    background-size: cover;
+    backdrop-filter: blur(20px);
+}
+
+.row-info {
+    height: 500px;
+}
+
+.dialog {
+    background: whitesmoke;
+}
+
+.dm-uploader {
+    display: flex;
+    border: 0.25rem dotted #A5A5C7;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10rem;
+}
+
+.dm-uploader.active {
+    border: 0.25rem dashed #A5A5C7;
+}
+
+.footer {
+    position: relative;
+    margin-top: -150px;
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+}

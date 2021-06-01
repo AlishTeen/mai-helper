@@ -1,0 +1,66 @@
+{% extends 'sweater/base.html' %}
+
+{% block title %}
+    Введение
+{% endblock %}
+
+{% block header %}
+    Быстрый старт
+{% endblock %}
+{% block main %}
+    <main class="container">
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light bg-img">
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+
+                <h1 class="display-4 fw-normal">Клиентское приложение</h1>
+                <p class="lead fw-normal">Ниже-инструкция по применению</p>
+                <a class="btn btn-outline-secondary" href="#">Начать</a>
+            </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+        </div>
+        <div class="row py-4 row-info">
+            <div class="col mb-2 h-100">
+                <div class="bg-primary text-center text-white overflow-hidden h-100">
+                    <div class="card-body media fade-in">
+                        <div class="media-body ">
+                            <h2 class="display-5  font-weight-normal">Как посмотреть инфу</h2>
+                            <p class="text-center">
+                                Инфа на счет просмотра
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 h-100">
+                <div class="bg-primary text-center text-white overflow-hidden h-100">
+                    <div class="card-body">
+                        <div class="">
+                            <h2 class="display-5 font-weight-normal" >Как посмотреть юзеров</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4 row-info">
+            <div class="col mb-2 h-100">
+                <div class="bg-primary text-center text-white overflow-hidden h-100">
+                    <div class="card-body media fade-in">
+                        <div class="media-body">
+                            <h2 class="display-5 font-weight-normal">Ответы на вопросы</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 h-100">
+                <div class="bg-primary text-center text-white overflow-hidden h-100 text-fw-light">
+                    <div class="card-body">
+                        <div class="">
+                            <h2 class="display-5 font-weight-normal">Как рассылать сообщения </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
