@@ -8,7 +8,7 @@ class DatasetPie {
     constructor(options) {
         this.label = options.label
         this.data = options.data
-        this.backgroundColor = ['#4b67d7', '#e7e735']
+        this.backgroundColor = ['#4b67d7', '#FF1207']
     }
 }
 
